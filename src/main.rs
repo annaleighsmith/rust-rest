@@ -26,18 +26,6 @@ async fn not_found() -> Result<HttpResponse> {
     Ok(HttpResponse::NotFound().json(response))
 }
 
-// #[actix_web::main]
-// async fn main() -> std::io::Result<()> {
-//     HttpServer::new(|| {
-//         App::new()
-//             .service(healthcheck)
-//             .default_service(web::route().to(not_found))
-//     })
-//     .bind(("127.0.0.1", 8080))?
-//     .run()
-//     .await
-// }
-
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let todo_db = repository::database::Database::new();
